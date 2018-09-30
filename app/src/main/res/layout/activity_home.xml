@@ -8,12 +8,39 @@
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editSearch"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:hint="Search"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="2dp"
+           />
+
+    </FrameLayout>
+
 
     <com.oli.matrixtest.helpers.CustomViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            app:tabIndicatorColor="@color/colorAccent"
+            android:splitMotionEvents="true"
+            app:elevation="0dp"
+            >
+
+
+        </android.support.design.widget.TabLayout>
 
     </com.oli.matrixtest.helpers.CustomViewPager>
 

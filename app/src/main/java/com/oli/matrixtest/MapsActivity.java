@@ -33,6 +33,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     LocationListener locationListener;
     SharedPref sharedPref = new SharedPref();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     result += addresses.get(0).getCountryName();
                     LatLng latLng = new LatLng(latitude, longitude);
                     mMap.addMarker(new MarkerOptions().position(latLng).title(result));
-                    mMap.setMaxZoomPreference(20);
+                    mMap.setMaxZoomPreference(40);
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12.0f));
 
                 } catch (IOException e) {

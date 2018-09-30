@@ -9,10 +9,12 @@ import java.util.ArrayList;
 
 public class VPagerAdapter extends FragmentPagerAdapter {
     ArrayList<Fragment> fragmenti = new ArrayList<Fragment>();
+    ArrayList<String>titles = new ArrayList<>();
 
 
-    public void dodadiFragment (Fragment fragment){
+    public void dodadiFragment (Fragment fragment, String titel){
         fragmenti.add(fragment);
+        titles.add(titel);
 
     }
 
@@ -31,6 +33,11 @@ public class VPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         return fragmenti.get(position);
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles.get(position);
     }
 
 }
