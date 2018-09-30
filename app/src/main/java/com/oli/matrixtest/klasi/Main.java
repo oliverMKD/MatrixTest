@@ -7,38 +7,16 @@ import java.io.Serializable;
 
 public class Main implements Serializable {
 
-    @SerializedName("temp")
-    @Expose
-    private Double temp;
-    @SerializedName("pressure")
-    @Expose
-    private Double pressure;
-    @SerializedName("humidity")
-    @Expose
-    private Integer humidity;
-    @SerializedName("temp_min")
-    @Expose
-    private Double tempMin;
-    @SerializedName("temp_max")
-    @Expose
-    private Double tempMax;
-    @SerializedName("sea_level")
-    @Expose
-    private Double seaLevel;
-    @SerializedName("grnd_level")
-    @Expose
-    private Double grndLevel;
-    @SerializedName("temp_kf")
-    @Expose
-    private Integer tempKf;
 
-    public Integer getTempKf() {
-        return tempKf;
-    }
+    public Double temp;
 
-    public void setTempKf(Integer tempKf) {
-        this.tempKf = tempKf;
-    }
+    public Double pressure;
+
+    public Integer humidity;
+
+    public Double tempMin;
+    public Double tempMax;
+
 
     public Main() {
     }
@@ -83,19 +61,5 @@ public class Main implements Serializable {
         this.tempMax = tempMax;
     }
 
-    public Double getSeaLevel() {
-        return seaLevel;
-    }
 
-    public void setSeaLevel(Double seaLevel) {
-        this.seaLevel = seaLevel;
-    }
-
-    public Double getGrndLevel() {
-        return grndLevel;
-    }
-
-    public void setGrndLevel(Double grndLevel) {
-        this.grndLevel = grndLevel;
-    }
 }

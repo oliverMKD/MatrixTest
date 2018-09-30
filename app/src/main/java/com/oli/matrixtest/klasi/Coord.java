@@ -1,18 +1,14 @@
 package com.oli.matrixtest.klasi;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
 public class Coord implements Serializable {
 
-    @SerializedName("lon")
-    @Expose
-    private Double lon;
-    @SerializedName("lat")
-    @Expose
-    private Double lat;
+
+    public Double lon;
+
+    public Double lat;
 
     public Coord() {
     }

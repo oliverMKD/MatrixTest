@@ -7,27 +7,16 @@ import java.io.Serializable;
 
 public class Weather implements Serializable {
 
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("main")
-    @Expose
-    private String main;
-    @SerializedName("description")
-    @Expose
-    private String description;
-    @SerializedName("icon")
-    @Expose
-    private String icon;
 
 
-    public Integer getId() {
-        return id;
-    }
+    public String main;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public String description;
+
+    public String icon;
+
+
+
 
     public String getMain() {
         return main;

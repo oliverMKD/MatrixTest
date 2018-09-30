@@ -4,32 +4,25 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class List implements Serializable {
-    @SerializedName("dt")
-    @Expose
-    private Integer dt;
-    @SerializedName("main")
-    @Expose
-    private Main main;
-    @SerializedName("weather")
-    @Expose
-    private java.util.List<Weather> weather = null;
-    @SerializedName("clouds")
-    @Expose
-    private Clouds clouds;
-    @SerializedName("wind")
-    @Expose
-    private Wind wind;
-    @SerializedName("rain")
-    @Expose
-    private Rain rain;
-    @SerializedName("sys")
-    @Expose
-    private Sys sys;
-    @SerializedName("dt_txt")
-    @Expose
-    private String dtTxt;
+
+    public Integer dt;
+
+    public Main main;
+
+    public ArrayList<Weather> weather = new ArrayList<>();
+
+    public Clouds clouds;
+
+    public Wind wind;
+
+    public Rain rain;
+
+    public Sys sys;
+
+    public String dtTxt;
 
     public Integer getDt() {
         return dt;
@@ -47,11 +40,11 @@ public class List implements Serializable {
         this.main = main;
     }
 
-    public java.util.List<Weather> getWeather() {
+    public ArrayList<Weather> getWeather() {
         return weather;
     }
 
-    public void setWeather(java.util.List<Weather> weather) {
+    public void setWeather(ArrayList<Weather> weather) {
         this.weather = weather;
     }
 

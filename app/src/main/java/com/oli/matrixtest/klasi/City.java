@@ -6,19 +6,15 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class City implements Serializable {
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("name")
-    @Expose
-    private String name;
-    @SerializedName("coord")
-    @Expose
-    private Coord coord;
-    @SerializedName("country")
-    @Expose
-    private String country;
-    private final static long serialVersionUID = 4182210836388227318L;
+
+    public Integer id;
+
+    public String name;
+
+    public Coord coord;
+
+    public String country;
+
 
     public Integer getId() {
         return id;

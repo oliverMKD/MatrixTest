@@ -69,12 +69,7 @@ public class CurrentWeather extends Fragment {
 
         mUnbinder = ButterKnife.bind(this, view);
         GetCurrentW();
-        prognoza.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addExpedFragment();
-            }
-        });
+
         mapi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,10 +121,7 @@ public class CurrentWeather extends Fragment {
         super.onDestroy();
         mUnbinder.unbind();
     }
-    private void addExpedFragment(){
-        Fragment exped = WeatherForecast.secondInstance();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.segasnoVreme, exped).commit();
-    }
+
 
 
 

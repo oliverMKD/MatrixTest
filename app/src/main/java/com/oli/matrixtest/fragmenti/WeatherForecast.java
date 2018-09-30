@@ -14,7 +14,10 @@ import com.oli.matrixtest.R;
 import com.oli.matrixtest.api.RestApi;
 import com.oli.matrixtest.helpers.RecyclerAdapter;
 import com.oli.matrixtest.helpers.SharedPref;
+import com.oli.matrixtest.klasi.List;
 import com.oli.matrixtest.klasi.Model;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,16 +28,13 @@ import retrofit2.Response;
 
 public class WeatherForecast extends Fragment {
 
-    public static Fragment secondInstance() {
-        Fragment eFrag = new WeatherForecast();
-        return eFrag;
-    }
 
     @BindView(R.id.MyRV)
     RecyclerView rv;
     RecyclerAdapter adapter;
     RestApi api;
     Model model;
+    ArrayList<List> lists = new ArrayList<>();
 
     private Unbinder mUnbinder;
 
@@ -47,7 +47,7 @@ public class WeatherForecast extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, null);
 
         mUnbinder = ButterKnife.bind(this, view);
-        adapter = new RecyclerAdapter(getActivity());
+
 
 
         WeatherForcast();
@@ -66,16 +66,21 @@ public class WeatherForecast extends Fragment {
             public void onResponse(Call<Model> call, Response<Model> response) {
                 if (response.isSuccessful()){
                     model = response.body();
+                    adapter = new RecyclerAdapter(getActivity(),model);
+//                    adapter.setItems(lists);
+                    rv.setHasFixedSize(true);
+                    rv.setLayoutManager(new GridLayoutManager(getActivity(),1));
+                    rv.setAdapter(adapter);
+
 
                     Toast.makeText(getActivity(), "Response successful", Toast.LENGTH_SHORT).show();
                 } else if (!response.isSuccessful()){
 
 
                 }
-                adapter = new RecyclerAdapter(getActivity());
-                rv.setHasFixedSize(true);
-                rv.setLayoutManager(new GridLayoutManager(getActivity(),1));
-                rv.setAdapter(adapter);
+
+//                adapter.setItems(lists);
+
 
             }
 

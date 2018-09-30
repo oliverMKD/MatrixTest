@@ -23,13 +23,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public ArrayList<List> peopleList = new ArrayList<>();
    public Model model;
 
-    public RecyclerAdapter(Context mContext) {
+    public RecyclerAdapter(Context mContext, Model movieModel) {
         this.mContext = mContext;
-//        peopleList=model.list;
+        peopleList=movieModel.list;
     }
     public void setItems(ArrayList<List> movielist){
 
-        this.model.list = movielist;
+        this.peopleList = movielist;
         notifyDataSetChanged();
     }
 
@@ -47,7 +47,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, final int position) {
         final List people = peopleList.get(position);
-        holder.info.setText(String.format("%s",peopleList.get(position).getMain().getTemp()));
+        holder.info.setText(String.format("%s",people.weather.get(0).description));
 
     }
 
