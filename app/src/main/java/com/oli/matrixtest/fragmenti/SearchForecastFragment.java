@@ -59,7 +59,7 @@ public class SearchForecastFragment extends Fragment {
         String lat = SharedPref.getLat(getActivity());
         String lon = SharedPref.getLng(getActivity());
         String units = "metric";
-        String city = "London";
+        String city= SharedPref.getCity(getActivity());
         final int i = 0;
 
         Call<Model> call = api.searchForecast(units,city);

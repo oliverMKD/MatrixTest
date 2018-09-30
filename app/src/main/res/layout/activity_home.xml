@@ -8,21 +8,34 @@
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
-    <FrameLayout
-        android:id="@+id/frame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
+
+        <FrameLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <EditText
+            android:layout_marginTop="5dp"
             android:id="@+id/editSearch"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:hint="Search"
+            android:singleLine="true"
             android:imeOptions="actionSearch"
+            android:inputType="text"
             android:paddingLeft="2dp"
            />
 
-    </FrameLayout>
+            <Button
+                android:id="@+id/kopce_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:text="Search"/>
+        </FrameLayout>
+
+
 
 
     <com.oli.matrixtest.helpers.CustomViewPager

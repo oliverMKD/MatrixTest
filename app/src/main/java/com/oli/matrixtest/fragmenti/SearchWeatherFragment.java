@@ -74,7 +74,7 @@ povik();
 
         api = new RestApi(getActivity());
 
-        final String city= "London";
+        String city= SharedPref.getCity(getActivity());
         String units = "metric";
 
         Call<OpenWeatherMap> call = api.SearchWeather(units,city);

@@ -31,4 +31,13 @@ public class SharedPref {
 
         return getPreferences(c).getString("SessionID", "");
     }
+    public static void addCity (String Lng, Context c)  {
+
+        getPreferences(c).edit().putString("CitySearch", Lng).apply();
+    }
+
+    public static  String getCity (Context c) {
+
+        return getPreferences(c).getString("CitySearch", "");
+    }
 }
