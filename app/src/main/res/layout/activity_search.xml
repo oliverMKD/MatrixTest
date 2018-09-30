@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchActivity">
+
+
+    <com.oli.matrixtest.helpers.CustomViewPager
+        android:id="@+id/vp1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tablayout1"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            app:tabIndicatorColor="@color/colorAccent"
+            android:splitMotionEvents="true"
+            app:elevation="0dp"
+            >
+
+
+        </android.support.design.widget.TabLayout>
+
+    </com.oli.matrixtest.helpers.CustomViewPager>
+
+</android.support.constraint.ConstraintLayout>

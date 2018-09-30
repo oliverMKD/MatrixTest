@@ -70,6 +70,9 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
+
+
     public void GetLocation(){
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this,

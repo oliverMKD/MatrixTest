@@ -46,6 +46,13 @@ public class RestApi {
     public Call<Model>getForecast(String units,String lat, String lon) {
         return request().getForecast(units, lat, lon);
     }
+    public Call<OpenWeatherMap> SearchWeather(String units,String q ){
+        return request().SearchWeather(units,q);
+    }
+
+    public Call<Model>searchForecast(String units,String lat) {
+        return request().searchForecast(units, lat);
+    }
 
 
 //    public Call<User> postAuthentication(String email,int register_type,String appkey, String device) {

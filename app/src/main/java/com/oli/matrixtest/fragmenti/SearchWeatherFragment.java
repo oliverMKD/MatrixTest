@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.oli.matrixtest.MapsActivity;
 import com.oli.matrixtest.R;
-import com.oli.matrixtest.SearchActivity;
 import com.oli.matrixtest.api.RestApi;
 import com.oli.matrixtest.common.Common;
 import com.oli.matrixtest.helpers.SharedPref;
@@ -26,16 +25,16 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CurrentWeather extends Fragment {
+public class SearchWeatherFragment extends Fragment {
+
 
     @BindView(R.id.txtCity)
-    TextView city;
+    TextView txtcity;
     @BindView(R.id.txtLastUpdate)
     TextView lastUpdate;
     @BindView(R.id.txtDescription)
@@ -48,17 +47,14 @@ public class CurrentWeather extends Fragment {
     TextView celsius;
     @BindView(R.id.imageview)
     ImageView slika;
-    @BindView(R.id.Maps)
-    Button mapi;
-    @BindView(R.id.ForecastButton)
-    Button prognoza;
-    @BindView(R.id.segasnoVreme)
-    LinearLayout segasnovreme;
+
+
     RestApi api;
     public WeatherModel weatherModel;
     Weather weather;
     OpenWeatherMap openWeatherMap;
     SharedPref sharedPref;
+
 
     private Unbinder mUnbinder;
 
@@ -66,55 +62,35 @@ public class CurrentWeather extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_currentweather, null);
+        View view = inflater.inflate(R.layout.search_weather_fragment, null);
 
         mUnbinder = ButterKnife.bind(this, view);
-        GetCurrentW();
 
-        mapi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(),MapsActivity.class));
-            }
-        });
-
-
-        prognoza.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),SearchActivity.class);
-                startActivity(intent);
-            }
-        });
-
+povik();
         return view;
     }
 
+    public void povik ( ) {
 
-
-    public void GetCurrentW(){
         api = new RestApi(getActivity());
 
-        String lat = SharedPref.getLat(getActivity());
-        String lon = SharedPref.getLng(getActivity());
+        final String city= "London";
         String units = "metric";
-       final int i = 0;
-        Call<OpenWeatherMap> call = api.getWeather(units,lat,lon);
+
+        Call<OpenWeatherMap> call = api.SearchWeather(units,city);
+
         call.enqueue(new Callback<OpenWeatherMap>() {
             @Override
             public void onResponse(Call<OpenWeatherMap> call, Response<OpenWeatherMap> response) {
-                if (response.isSuccessful()){
+
+                if(response.isSuccessful()) {
                     openWeatherMap = response.body();
-                    description.setText(openWeatherMap.weather.get(i).getDescription());
-                    city.setText(openWeatherMap.getName()+","+openWeatherMap.getSys().getCountry());
-                    humidity.setText(String.format("%d%%",openWeatherMap.getMain().getHumidity()));
-                    celsius.setText(String.format("%.2f °C",openWeatherMap.getMain().getTemp()));
-                    lastUpdate.setText(Common.getDateNow());
-                    time.setText(String.format("%s/%s",Common.UnixTimeStamp(openWeatherMap.getSys().getSunrise()),Common.UnixTimeStamp(openWeatherMap.getSys().getSunset())));
-                    Picasso.with(getActivity()).load(Common.getImage(openWeatherMap.weather.get(i).getIcon())).into(slika);
-                } else if (!response.isSuccessful()){
-                    Toast.makeText(getActivity(), "NE PROAGJA", Toast.LENGTH_LONG).show();
+
+
+                    txtcity.setText(openWeatherMap.getName() + " , " + openWeatherMap.sys.getCountry()  );
+
                 }
+
             }
 
             @Override
@@ -126,13 +102,14 @@ public class CurrentWeather extends Fragment {
 
     }
 
+
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         mUnbinder.unbind();
     }
-
-
 
 
 }

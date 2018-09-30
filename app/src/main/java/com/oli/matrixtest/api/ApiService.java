@@ -14,4 +14,12 @@ public interface ApiService {
     Call<OpenWeatherMap> getCurrentWeather(@Query("units") String units,@Query("lat") String lat, @Query("lon") String lon);
     @GET("forecast?"+"appid="+ApiConstants.api_key)
     Call<Model> getForecast(@Query("units") String units, @Query("lat") String lat, @Query("lon") String lon);
+
+    @GET("weather?"+"appid="+ApiConstants.api_key)
+    Call<OpenWeatherMap> SearchWeather(@Query("units") String units,@Query("q") String q);
+
+    @GET("forecast?"+"appid="+ApiConstants.api_key)
+    Call<Model> searchForecast(@Query("units") String units, @Query("q") String q);
+
+
 }
