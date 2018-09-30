@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -42,6 +43,8 @@ public class HomeActivity extends AppCompatActivity {
     CustomViewPager vPage;
     @BindView(R.id.tablayout)
     public TabLayout tabLayout;
+    @BindView(R.id.editSearch)
+    EditText searchText;
     Context context;
 
     @Override

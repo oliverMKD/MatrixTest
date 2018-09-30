@@ -84,10 +84,7 @@ public class CurrentWeather extends Fragment {
 
         return view;
     }
-//    @OnClick(R.id.ForecastButton)
-//    public void klik(View view){
-//        addExpedFragment();
-//    }
+
 
 
     public void GetCurrentW(){
