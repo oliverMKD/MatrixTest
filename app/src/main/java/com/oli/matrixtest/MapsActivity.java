@@ -11,6 +11,9 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,9 +23,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.oli.matrixtest.helpers.SharedPref;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.List;
+
+import butterknife.BindView;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -32,15 +38,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Marker marker;
     LocationListener locationListener;
     SharedPref sharedPref = new SharedPref();
+    @BindView(R.id.splash_slika)
+    ImageView slika;
+    @BindView(R.id.splash)
+    RelativeLayout relativeLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.proba_za_splash);
+
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+//        mapFragment.setUserVisibleHint(false);
+//        relativeLayout.setVisibility(View.VISIBLE);
+//        slika.setVisibility(View.VISIBLE);
+//        Picasso.with(this).load(R.drawable.za_pane).fit().into(slika);
+
+
         mapFragment.getMapAsync(this);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this,
