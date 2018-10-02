@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -16,10 +17,12 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.oli.matrixtest.helpers.SharedPref;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SplashScreen extends AppCompatActivity implements LocationListener {
 
@@ -36,7 +39,11 @@ public class SplashScreen extends AppCompatActivity implements LocationListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.proba_za_splash);
+        ButterKnife.bind(this);
         context = this;
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        Picasso.with(this).load(R.drawable.za_pane).fit().centerCrop().into(slika);
+//        Glide.with(SplashScreen.this).load(R.drawable.za_pane).into(slika);
         setupLocation();
     }
 
